@@ -1,0 +1,32 @@
+/**
+ * ATR Calculator
+ * Montage1: The name of the Montage Level II window you want to trade off of
+ * MainChart: The name of your chart where you want to draw lines
+ * Disclaimer: Test all hotkeys in replay mode before going live. Creator shall not be liable for losses
+ * or any errors or inaccuracies, regardless of cause to the user.
+ */
+$ATR=Input("ATR", $ATRsymbol+" "+$ATR);if($ATR==0){return;}
+FocusWindow Montage1;$ATRsymbol=GetTicker();
+if(Open>0){
+    $ATRLong1=Open+$ATR;
+    $ATRLong1Half=Open+($ATR*1.5);
+    $ATRLong2=Open+($ATR*2);
+    $ATRShort1=Open-$ATR;
+    $ATRShort1Half=Open-($ATR*1.5);
+    $ATRShort2=Open-($ATR*2);
+}else{
+    $ATRLong1=Ask+$ATR;
+    $ATRLong1Half=Ask+($ATR*1.5);
+    $ATRLong2=Ask+($ATR*2);
+    $ATRShort1=Ask-$ATR;
+    $ATRShort1Half=Ask-($ATR*1.5);
+    $ATRShort2=Ask-($ATR*2);
+}
+FocusWindow MainChart;
+DrawHorzLineWithPrice($ATRLong1);
+DrawHorzLineWithPrice($ATRLong1Half);
+DrawHorzLineWithPrice($ATRLong2);
+DrawHorzLineWithPrice($ATRShort1);
+DrawHorzLineWithPrice($ATRShort1Half);
+DrawHorzLineWithPrice($ATRShort2);
+DelVar("$ATRLONG1","$ATRLONG1HALF","$ATRLONG2","$ATRSHORT1","$ATRSHORT1HALF","$ATRSHORT2");
