@@ -1,0 +1,11 @@
+/**
+ * First calculate the bottom of the measured move and then enter long on the
+ * cross of the 9ema and VWAP. This script will calculate a measured move target and set
+ * the stop to 30% of a measured move from your entry.
+ * Montage1: The name of the Montage Level II window you want to trade off of.
+ * Disclaimer: Test all hotkeys in replay mode before going live. Creator shall not be liable for losses
+ * or any errors or inaccuracies, regardless of cause to the user.
+ */
+Alt+Ctrl+Shift+A:Risk - Dollar - A Entry:SetVar("$dollarRiskA", 5);
+Ctrl+M:Measured Move Start:$MMStart=Price;
+Ctrl+F:Measured Move Entry:FocusWindow Montage1;if($dollarRiskA>0) {$riskMaxDollarAmt=BP0.97;if(Ask>$MMStart){$MMdDiff=Ask-$MMStart;$MMStop=Ask-($MMdDiff.30);$MMTarget=Ask+$MMdDiff;$riskStopDistanceEntry=Ask-$MMStop;}else{$MMdDiff=$MMStart-Bid;$MMStop=($MMdDiff .30)+Bid;$MMTarget=Bid-$MMdDiff;$riskStopDistanceEntry=$MMStop-Bid;}$riskStopDistanceShares=$dollarRiskA/$riskStopDistanceEntry;SShare=$riskMaxDollarAmt-$riskStopDistanceShares;$riskAbsALessB=SShare;TogSShare;$riskAPlusB=$riskMaxDollarAmt+$riskStopDistanceShares;Share=0.5($riskAPlusB-$riskAbsALessB);if(Ask>$MMStart){Price=Ask;BUY=Send;}else{Price=Bid;SELL=Send;}Route=Stop;StopType=Range;Share=Pos;if(Ask>$MMStart){LowPrice=$MMStop;HighPrice=$MMTarget;SELL=Send;}else{LowPrice=$MMTarget;HighPrice=$MMStop;BUY=Send;}Route=Limit;}else{MsgBox("$dollarRiskA not initialized");}
