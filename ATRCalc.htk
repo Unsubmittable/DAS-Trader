@@ -6,7 +6,7 @@
  * or any errors or inaccuracies, regardless of cause to the user.
  */
 $ATR=Input("ATR", $ATRsymbol+" "+$ATR);if($ATR==0){return;}
-FocusWindow Montage1;$ATRsymbol=GetTicker();
+FocusWindow Montage1;$ATRsymbol=GetTicker();Wait(50);
 if(Open>0){
     $ATRLong1=Open+$ATR;
     $ATRLong1Half=Open+($ATR*1.5);
