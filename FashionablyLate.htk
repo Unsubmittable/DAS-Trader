@@ -1,4 +1,6 @@
 /**
+ * Companion script for the "DAS Trader Fashionably Late Script" video: https://youtu.be/hlA3MxHiAXI
+ *
  * First calculate the bottom of the measured move and then enter long on the
  * cross of the 9ema and VWAP. This script will calculate a measured move target and set
  * the stop to 30% of a measured move from your entry.
