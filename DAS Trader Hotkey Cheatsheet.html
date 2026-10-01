@@ -1,0 +1,4077 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DAS Trader Hotkey Cheatsheet</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; text-align: center; }
+        h2 { color: #d9534f; border-bottom: 2px solid #d9534f; padding-bottom: 5px; margin-top: 40px; }
+        h3 { color: #0275d8; margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .tip { font-size: 0.9em; color: #555; }
+        pre { margin: 0; white-space: pre-wrap; word-wrap: break-word; }
+        .index-container { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-bottom: 30px; }
+        .index-category { margin-bottom: 15px; }
+        .index-category h4 { margin: 0 0 5px 0; color: #d9534f; }
+        .index-action { margin-left: 20px; margin-bottom: 5px; }
+        .index-action-name { font-weight: bold; color: #0275d8; margin-bottom: 3px; }
+        .index-links a { text-decoration: none; color: #333; margin-right: 10px; font-size: 0.9em; display: inline-block; }
+        .index-links a:hover { text-decoration: underline; color: #0275d8; }
+    </style>
+</head>
+<body>
+    <h1>DAS Trader Hotkey Cheatsheet</h1>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="C:\Trading Recordings\Youtube\unsubmittable_trading_bjj.png" alt="Unsubmittable Trading BJJ" style="max-width: 100%; height: auto;">
+    </div>
+    <h2 id='global-hotkeys'>Global Hotkeys</h2>
+    <table>
+        <tr><th>Hotkey</th><th>Script</th><th>Tip</th></tr>
+        <tr id='global-cmd-livechat'><td>F1</td><td><pre>LiveChat</pre></td><td class='tip'>This is the quickest way to reach DAS support team. It will open the default web browser and point to the DAS web chatting portal.</td></tr>
+        <tr id='global-cmd-hotkey'><td>NumPad*</td><td><pre>Hotkey</pre></td><td class='tip'>This opens hot key configuration window.</td></tr>
+        <tr id='global-cmd-zoom-to-number-of-bars'><td>F2</td><td><pre>NumBar 25</pre></td><td class='tip'>Set the number of bars to be displayed on the chart window. In this example, 25 bars will be displayed. A chart window must be selected (set on focus) before it can react to the hotkey.</td></tr>
+        <tr id='global-cmd-simpledesktop'><td>Ctrl+S</td><td><pre>NewWindow Montage; Symbol SPY; WSize 365 500; SetPopOut Y; NewWindow Chart; Symbol QID; SetPopOut Y; MinuteChart 1;NumBar 25; WPos 382 0; WSize 600 500;</pre></td><td class='tip'>The best way to find out what this script does is to try it. It opens two windows and does some configuration to each window. More windows can be opened and configured by pressing this hot key by adding more commands to this script.</td></tr>
+        <tr id='global-cmd-buyarcabid'><td>F3</td><td><pre>Route=ARCA;Share=100;Price=Bid;BUY</pre></td><td class='tip'>This is a simple buy order. Buy 100 Shares on Bid through ARCA. This command is effective on the selected Montage window (the one on focus).</td></tr>
+        <tr id='global-cmd-sellarcaask'><td>F4</td><td><pre>Price=Ask;Share=100;Route=ARCA;SELL</pre></td><td class='tip'>This is a simple Sell order. Sell 100 Shares on Ask through ARCA. This command is effective on the selected Montage window (the one on focus).</td></tr>
+        <tr id='global-cmd-spreadtrade'><td>F5</td><td><pre>Share=100;Price=Bid-0.05;Route=INET;BUY; Share=100;Price=Ask+0.05;Route=INET;SELL</pre></td><td class='tip'>This will send two orders simultaneously on the Bid and Ask side to accomplish a spread trading task. This command is effective on the selected Montage window (the one on focus).</td></tr>
+        <tr id='global-cmd-increase-price-by-0-001'><td></td><td><pre>Price=Price+0.001</pre></td><td class='tip'>Increase price by 0.001</td></tr>
+        <tr id='global-cmd-increase-price-by-0-01'><td></td><td><pre>Price=Price+0.01</pre></td><td class='tip'>Increase price by 0.01</td></tr>
+        <tr id='global-cmd-decrease-price-by-0-001'><td></td><td><pre>Price=Price-0.001</pre></td><td class='tip'>Decrease price by 0.001</td></tr>
+        <tr id='global-cmd-decrease-price-by-0-01'><td></td><td><pre>Price=Price-0.01</pre></td><td class='tip'>Decrease price by 0.01</td></tr>
+        <tr id='global-cmd-increase-shares-by-100'><td></td><td><pre>Share=Share+100</pre></td><td class='tip'>Increase shares by 100</td></tr>
+        <tr id='global-cmd-increase-shares-by-1000'><td></td><td><pre>Share=Share+1000</pre></td><td class='tip'>Increase shares by 1000</td></tr>
+        <tr id='global-cmd-decrease-shares-by-100'><td></td><td><pre>Share=Share-100</pre></td><td class='tip'>Decrease shares by 100</td></tr>
+        <tr id='global-cmd-decrease-shares-by-1000'><td></td><td><pre>Share=Share-1000</pre></td><td class='tip'>Decrease shares by 1000</td></tr>
+        <tr id='global-cmd-zoom-in-chart'><td></td><td><pre>ZoomIn</pre></td><td class='tip'>Zoom in chart</td></tr>
+        <tr id='global-cmd-zoom-out-chart'><td></td><td><pre>ZoomOut</pre></td><td class='tip'>Zoom out chart</td></tr>
+        <tr id='global-cmd-close-all-positions'><td></td><td><pre>PANIC;</pre></td><td class='tip'>This button cancels all open orders and sends the necessary market orders to clear positions; it will liquidate all accounts.</td></tr>
+        <tr id='global-cmd-cancel-all-open-orders'><td></td><td><pre>CXL ALL</pre></td><td class='tip'>Cancel all open orders</td></tr>
+        <tr id='global-cmd-cancel-all-open-orders-for-an-account'><td></td><td><pre>CXL ALL ACCOUNT OF accountname</pre></td><td class='tip'>Cancel all open orders for an account</td></tr>
+        <tr id='global-cmd-cancel-buy-orders'><td></td><td><pre>CXL ALL BUY</pre></td><td class='tip'>Cancel all the buy orders only</td></tr>
+        <tr id='global-cmd-cancel-sell-orders'><td></td><td><pre>CXL ALL SELL</pre></td><td class='tip'>Cancel all the sell orders only</td></tr>
+        <tr id='global-cmd-cancel-last'><td></td><td><pre>CXL LAST</pre></td><td class='tip'>Cancel the most recent orders in the order queue</td></tr>
+        <tr id='global-cmd-buy-stop-range'><td></td><td><pre>Route=STOP;StopType=Range;LowPrice=;HighPrice=;BUY</pre></td><td class='tip'>Send a market stop range order. Please fill in the low price and high price.</td></tr>
+        <tr id='global-cmd-buy-stop-market'><td></td><td><pre>Route=STOP;StopType=Market;StopPrice=;BUY</pre></td><td class='tip'>Send a market buy stop order. Please fill in the StopPrice.</td></tr>
+        <tr id='global-cmd-sell-stop-market'><td></td><td><pre>Route=STOP;StopType=Market;StopPrice=;SELL</pre></td><td class='tip'>Send a market sell stop order. Please fill in the StopPrice.</td></tr>
+        <tr id='global-cmd-sell-stop-range'><td></td><td><pre>Route=STOP;StopType=Range;LowPrice=;HighPrice=;SELL</pre></td><td class='tip'>Send a sell stop range order. Please fill in the low price and high price.</td></tr>
+        <tr id='global-cmd-switch-trading-window'><td></td><td><pre>SwitchTWnd</pre></td><td class='tip'>Switch to the next trading window</td></tr>
+        <tr id='global-cmd-reverse-position'><td></td><td><pre>ROUTE=MARKET;Share=Pos*2;TIF=DAY+;Send=REVERSE</pre></td><td class='tip'>Reverse position</td></tr>
+        <tr id='global-cmd-flatten-position'><td></td><td><pre>ROUTE=MARKET;Share=Pos;TIF=DAY+;Send=REVERSE</pre></td><td class='tip'>Flatten position</td></tr>
+    </table>
+    <h2 id='cat-trade'>Trade</h2>
+    <h3>Price</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-price-price001'><td><pre>Price=0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        <font>
+         Set the specified order price.
+         <b>
+          Change
+         </b>
+         0.00 to the price you want.
+        </font></td></tr>
+        <tr id='cmd-trade-price-price002'><td><pre>Price=Bid</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the order price to the current Level I bid price.</td></tr>
+        <tr id='cmd-trade-price-price003'><td><pre>Price=Ask</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the order price to the current Level I Ask price.</td></tr>
+        <tr id='cmd-trade-price-price004'><td><pre>Price=Bid+0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price at some price above or below the current Level I Bid level. For example, to set the order price 0.03 higher than the current level 1 bid price, change 0.00 to 0.03.
+        <br>
+        Use Price=Bid-0.03 to set the order price 0.03 below the current level 1 bid price.</td></tr>
+        <tr id='cmd-trade-price-price005'><td><pre>Price=Ask+0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price at some price above or below the current Level I Ask level. For example, to set the order price 0.03 higher than the current level 1 ask price, change 0.00 to 0.03.
+        <br>
+        Use Price=Ask-0.03 to set the order price 0.03 below the current level 1 ask price.</td></tr>
+        <tr id='cmd-trade-price-price006'><td><pre>Price=L2Bid</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price at the current Level II Bid level.</td></tr>
+        <tr id='cmd-trade-price-price007'><td><pre>Price=L2Bid+0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to a price higher or lower than the current Level II Bid price by a specific amount.
+        <b>
+         Change
+        </b>
+        0.00 to the amount of increment.
+        <br>
+        Use Price=L2Bid-0.00 to set the order price below the level 2 bid price.</td></tr>
+        <tr id='cmd-trade-price-price008'><td><pre>Price=L2Ask</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price at the current Level II Ask level.</td></tr>
+        <tr id='cmd-trade-price-price009'><td><pre>Price=L2Ask+0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to a price higher or lower than the current Level II Ask level by a specified amount.
+        <b>
+         Change
+        </b>
+        0.00 to the amount of increment.
+        <br>
+        Use Price=L2Ask-0.00 to set the order price below the current level 2 ask level.</td></tr>
+        <tr id='cmd-trade-price-price010'><td><pre>Price=Last</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price at the Last trade price.</td></tr>
+        <tr id='cmd-trade-price-price011'><td><pre>Price=Last+0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to a price higher or lower than the Last trade price by a specified amount.
+        <b>
+         Change
+        </b>
+        0.00 to the amount of increment.
+        <br>
+        Using Price=Last-0.00 to set the order price below the last trade price.</td></tr>
+        <tr id='cmd-trade-price-price020'><td><pre>Price=LOW</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to a today's low price</td></tr>
+        <tr id='cmd-trade-price-price021'><td><pre>Price=HI</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to a today's high price</td></tr>
+        <tr id='cmd-trade-price-price022'><td><pre>Price=OPEN</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to today's open price</td></tr>
+        <tr id='cmd-trade-price-price023'><td><pre>Price=PCL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to previous close price</td></tr>
+        <tr id='cmd-trade-price-price012'><td><pre>Price=AvgCost</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the order price to the average cost of the position which is implied by current selected symbol and account in montage window.</td></tr>
+        <tr id='cmd-trade-price-price013'><td><pre>Price=Round2</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to round the order price to specified number of decimals to avoid too many decimals which could lead to order being rejected. Currently Round1, Round2, Round3 and Round4 are supported, which correspond to 1, 2, 3 and 4 decimals. For example, if original price is 25.238, after executing hotkey "Price=Round2", new price will be 25.24.</td></tr>
+        <tr id='cmd-trade-price-price014'><td><pre>FPrice=price</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This hotkey will set the value of the price text box that is on focus. For example, if Stop Trigger Price text box is on focus, then this hotkey will enter the "price" value specified in the hotkey script into the text box. There are 3 price text boxes on Montage window that can be set using this hotkey.</td></tr>
+        <tr id='cmd-trade-price-price015'><td><pre>Price=share</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This hotkey will set the value of the price text box with the value of Share text box operated with a number (or no number). For example, price=share*100 will set price to 100 multiplied by number of shares in Share text box.</td></tr>
+        <tr id='cmd-trade-price-price016'><td><pre>Price=RoundNearestMultiple</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Format is RoundNearestMultipleNum. Then price will be rounded to a number which is Num divided by 100. For example, RoundNearestMultiple25 will round order price to nearest multiple of 0.25, RoundNearestMultiple300 will round to nearest multiple of 3.</td></tr>
+    </table>
+    <h3>Share</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-share-share001'><td><pre>Share=Pos</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will set the number of shares to the amount you already own (as shown in the Positions window) for the relevant symbol.</td></tr>
+        <tr id='cmd-trade-share-share002'><td><pre>Share=Share+0</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will increase/decrease the number of shares displayed in Shares box of the selected Trading window.
+        <b>
+         Change
+        </b>
+        0 to the number of shares you want to increase.
+        <br>
+        Use Share=Share-0 to decrease.</td></tr>
+        <tr id='cmd-trade-share-share003'><td><pre>Share=DEFSHARE+0</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will set the number of shares higher or lower than the default number of shares by a specified amount.
+        <b>
+         Change
+        </b>
+        0 to the amount of increment of decrement.
+        <br>
+        Use Share=DEFSHARE-0 for decrement.</td></tr>
+        <tr id='cmd-trade-share-share004'><td><pre>Share=0</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will set the number of shares to a specified number.
+        <b>
+         Change
+        </b>
+        0 to that specified amount.</td></tr>
+        <tr id='cmd-trade-share-share005'><td><pre>Share=1000/Price</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the number of shares to a specified number which is the rounding result of an integer number divided by the value of Price. The value of Price is the price text box in Montage window.</td></tr>
+        <tr id='cmd-trade-share-share006'><td><pre>Share=Pos*0.5</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set shares using percentage. "Pos" can be replaced by an integer or "Share" depending on user's strategy.</td></tr>
+        <tr id='cmd-trade-share-share007'><td><pre>Share=BP*0.5</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        For buy order. Please note that this hotkey will actually execute Share=BP*0.5/Price. It will set the number of shares to the rounding value of buying power multiplied by a percentage (0.5 in this example) divided by Price. For a limit order, the value of Price is the value in price text box; For a market order, the value of Price is the last price or bid price. For example, current account's buying power is 10,000, the price value is 20 in price text box, so number of shares will be set to 10,000*0.5/20=250.</td></tr>
+        <tr id='cmd-trade-share-share008'><td><pre>Share=BPS*0.5</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Same with Share=BP*0.5, but for short order.</td></tr>
+        <tr id='cmd-trade-share-share009'><td><pre>Share=ROUND</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        If share value less than 100, this script will round it to 100.</td></tr>
+        <tr id='cmd-trade-share-share010'><td><pre>FShare=share</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This hotkey will set the value of the qty (number of shares) text box that is on focus. Currently two qty text boxes on Montage window can be set. When this hotkey is pressed, the box that is on focus will be set to the value specified in "share" in the script.</td></tr>
+        <tr id='cmd-trade-share-share011'><td><pre>Share=LOCATED</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set available locate shares.</td></tr>
+        <tr id='cmd-trade-share-share012'><td><pre>Share=1000/StopPrice</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to set the number of shares to a specified number which is the rounding result of an integer number divided by the value of StopPrice. The value of StopPrice is the stop price text box in Montage window.</td></tr>
+    </table>
+    <h3>SSHARE</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-sshare-sshare001'><td><pre>SShare=0</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This sets the number of shares in the Show Share box of Trading window.
+        <b>
+         Change
+        </b>
+        0 to the specified number to show in the box.</td></tr>
+        <tr id='cmd-trade-sshare-sshare002'><td><pre>SShare=SShare+0</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This increases the current Show Share number in the Trading window by a specified number.
+        <b>
+         Change
+        </b>
+        0 to that specified number.
+        <br>
+        Use SShare=SShare-0 to decrease.</td></tr>
+        <tr id='cmd-trade-sshare-sshare003'><td><pre>TogSShare=100</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle the show share box on or off. Toggling off will clear show share box. Toggling on will set SShare to X, X is the number of shares you want to show.
+        <br>
+        <br>
+        For Example, pressing TogSShare=100 will set show share box to 100, press again will set it empty.</td></tr>
+    </table>
+    <h3>DEFSHARE</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-defshare-defshare001'><td><pre>DefShare=0</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Sets the Default Share number as explicitly specified.
+        <b>
+         Change
+        </b>
+        0 to the number you want.</td></tr>
+        <tr id='cmd-trade-defshare-defshare002'><td><pre>DefShare=DefShare+0</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Increase the current Default Share by a specified number.
+        <b>
+         Change
+        </b>
+        0 to the number you want.
+        <br>
+        Use DefShare=DefShare-0 to decrease.</td></tr>
+    </table>
+    <h3>ROUTE</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-route-route004'><td><pre>Route=</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the route to ARCA. Other availabilities might be
+        <font color="BLUE">
+         route=INET;
+        </font>
+        Talk to your broker to see how many options you have.</td></tr>
+        <tr id='cmd-trade-route-route001'><td><pre>Pref=DOTM</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the preference route as DOTM. Other possibilities are: Pref=DOTA;Pref=DOTI;Pref=DOTD;Pref=STGY;</td></tr>
+        <tr id='cmd-trade-route-route002'><td><pre>NoRR=Y</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        No order Rerouting. NoRR=N; will set the rerouting as permitted.</td></tr>
+    </table>
+    <h3>Time in Force</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-time-in-force-tif001'><td><pre>TIF=DAY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set Time in Force as DAY.</td></tr>
+        <tr id='cmd-trade-time-in-force-tif001'><td><pre>TIF=DAY+</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set Time in Force as DAY+ (Orders expire at 8:00pm).</td></tr>
+        <tr id='cmd-trade-time-in-force-tif002'><td><pre>TIF=IOC</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set Time in Force as IOC, i.e. Immediately or Cancel.</td></tr>
+        <tr id='cmd-trade-time-in-force-tif003'><td><pre>TIF=GTC</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set Time in Force as GTC, i.e. Good Till Cancel.</td></tr>
+        <tr id='cmd-trade-time-in-force-tif004'><td><pre>TIF=At Open</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set Time in Force as at market open.</td></tr>
+        <tr id='cmd-trade-time-in-force-tif005'><td><pre>TIF=At Close</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set Time in Force as at market close.</td></tr>
+        <tr id='cmd-trade-time-in-force-tif006'><td><pre>TIF=0Min</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Time in force can also be specified as how many
+        <b>
+         Min
+        </b>
+        . For one hour, use 60Min instead. This number can be any positive integer and there is
+        <font color="RED">
+         <b>
+          NO SPACE
+         </b>
+        </font>
+        between the number and the word 'Min'.</td></tr>
+    </table>
+    <h3>Handle Instruction</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-handle-instruction-hi001'><td><pre>HANDINST=ANY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the handle instruction to ANY.</td></tr>
+        <tr id='cmd-trade-handle-instruction-hi002'><td><pre>HANDINST=AON</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the handle instruction to AON.</td></tr>
+        <tr id='cmd-trade-handle-instruction-hi002'><td><pre>HANDINST=N Hold</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the handle instruction to N Hold.</td></tr>
+    </table>
+    <h3>StopOrder</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-stoporder-stop001'><td><pre>StopType=Market</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        The order becomes a market order immediately upon the triggering of stop price. This command is to be used with StopPrice=X to set the stop price to X. For example, to set up the stop order with type 'market' and stop price at 10.00, use StopType=Market;StopPrice=10.00.</td></tr>
+        <tr id='cmd-trade-stoporder-stop002'><td><pre>StopType=Limit</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        The order becomes a limit order upon the triggering of stop price.</td></tr>
+        <tr id='cmd-trade-stoporder-stop003'><td><pre>StopType=Trailing</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the stop order type to trailing stop order; a corresponding trailing price should also be specified.</td></tr>
+        <tr id='cmd-trade-stoporder-stop004'><td><pre>StopType=Range</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        For range stop order, one can specify a stop price and a target price simultaneously. The low price is specified by LowPrice= , and the high price is specified by HighPrice=</td></tr>
+        <tr id='cmd-trade-stoporder-stop005'><td><pre>StopPrice=0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the stop price.</td></tr>
+        <tr id='cmd-trade-stoporder-stop006'><td><pre>TrailPrice=0.00</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the trailing price if the order is a trailing stop order.</td></tr>
+        <tr id='cmd-trade-stoporder-stop007'><td><pre>StopPrice=Round2</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to round the stop price to specified number of decimals to avoid too many decimals which could lead to orders being rejected. Currently Round1, Round2, Round3 and Round4 are supported, which correspond to 1, 2, 3 and 4 decimals.</td></tr>
+        <tr id='cmd-trade-stoporder-stop008'><td><pre>TrailPrice=Round2</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to round the trailing price to specified number of decimals to avoid too many decimals which could lead to orders being rejected. Currently Round1, Round2, Round3 and Round4 are supported, which correspond to 1, 2, 3 and 4 decimals.</td></tr>
+        <tr id='cmd-trade-stoporder-'><td><pre></pre></td><td class='tip'></td></tr>
+    </table>
+    <h3>Order Trigger Order</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-order-trigger-order-trigger-order'><td><pre>WithTrigger=RT:STOP STOPTYPE:LIMIT PX:0.00 STOPPRICE:0.00 ACT:SELL QTY:100 TIF:DAY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Send primary order and trigger order.
+        <br>
+        Example:
+        <br>
+        ROUTE=LIMIT;Price=Ask+0.1;Share=100;TIF=DAY+;WithTrigger=ACT:SELL QTY:100 RT:STOP StopType:Market StopPrice:Bid-0.05 TIF:DAY;BUY/SELL
+        <br>
+        Last BUY/SELL command is for primary order.
+        <br>
+        Each field's definition:
+        <br>
+        <B>
+         RT
+        </B>
+        : route, ARCAL/ARCAM/STOP etc.;
+        <br>
+        <B>
+         StopType
+        </B>
+        : LIMIT/MARKET/Trailing/Range;
+        <br>
+        <B>
+         PX
+        </B>
+        : order's price. STOPPRICE: order's stop price.
+        <br>
+        <B>
+         ACT
+        </B>
+        : SELL/BUY/SHORT;
+        <br>
+        <B>
+         QTY
+        </B>
+        : order's shares, can be a digit value or 'POS';
+        <br>
+        <B>
+         TIF
+        </B>
+        : time in force, DAY+/DAY/IOC etc.;
+        <br>
+        <B>
+         ACC
+        </B>
+        : account for this trader, default is primary order's account;
+        <br>
+        <B>
+         SYM
+        </B>
+        : order's symbol, default is primary order's symbol;
+        <br></td></tr>
+        <tr id='cmd-trade-order-trigger-order-add-trigger-order'><td><pre>TriggerOrder=RT:STOP STOPTYPE:LIMIT PX:0.00 STOPPRICE:0.00 ACT:SELL QTY:100 TIF:DAY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Each field's definition:
+        <br>
+        <B>
+         RT
+        </B>
+        : route, ARCAL/ARCAM/STOP etc.;
+        <br>
+        <B>
+         StopType
+        </B>
+        : LIMIT/MARKET/Trailing/Range;
+        <br>
+        <B>
+         PX
+        </B>
+        : order's price. STOPPRICE: order's stop price.
+        <br>
+        <B>
+         ACT
+        </B>
+        : SELL/BUY/SHORT;
+        <br>
+        <B>
+         QTY
+        </B>
+        : order's shares, can be a digit value or 'POS';
+        <br>
+        <B>
+         TIF
+        </B>
+        : time in force, DAY+/DAY/IOC etc.;
+        <br>
+        <B>
+         ACC
+        </B>
+        : account for this trader, default is primary order's account;
+        <br>
+        <B>
+         SYM
+        </B>
+        : order's symbol, default is primary order's symbol;
+        <br></td></tr>
+    </table>
+    <h3>Order Cancel Order</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-order-cancel-order-order-cancel-order'><td><pre>OCO=RT:STOP STOPTYPE:LIMIT PX:0.00 STOPPRICE:0.00 ACT:SELL QTY:100 TIF:DAY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Each field's definition is same with order trigger order
+        <br></td></tr>
+    </table>
+    <h3>SwitchCoverMode</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-switchcovermode-switchcovermode'><td><pre>SwitchCoverMode</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This command will turn the cover mode on or off. In cover mode, if there is a position for the current displayed stock in the trading window, then either BUY or SELL button will become COVER button, which means clicking the button will close the position. If there is no position for the current stock displayed in the trading window, then trading is not allowed (BUY and SELL buttons not available).</td></tr>
+    </table>
+    <h3>Order preparation</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-order-preparation-op001'><td><pre>OrdPrepare=Y</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Enable order preparation. Note, please use BUY=Load or SELL=Load command instead of this one, they achieve the same result but are more convenient. For description of BUY=Load, go to Sub Category BUY and then select BUY=Load from the available commands.</td></tr>
+        <tr id='cmd-trade-order-preparation-op002'><td><pre>OrdPrepare=N</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Disable order preparation.</td></tr>
+        <tr id='cmd-trade-order-preparation-op003'><td><pre>OrdPrepare</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle between enabled / disabled status of order preparation.</td></tr>
+        <tr id='cmd-trade-order-preparation-op004'><td><pre>PostOnly=Y</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Prepare the order as a post only order.</td></tr>
+        <tr id='cmd-trade-order-preparation-op005'><td><pre>PostOnly=N</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Don't prepare the order as a post only order.</td></tr>
+        <tr id='cmd-trade-order-preparation-op006'><td><pre>PostOnly</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle the "Post only" attribute of the order.</td></tr>
+    </table>
+    <h3>Montage Window</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-montage-window-mt001'><td><pre>SwitchTWnd</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Go to the next trading window.</td></tr>
+        <tr id='cmd-trade-montage-window-mt002'><td><pre>TMP</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open an order template window.</td></tr>
+        <tr id='cmd-trade-montage-window-mt003'><td><pre>RefreshLv2</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Refresh the level 2 quotes.</td></tr>
+        <tr id='cmd-trade-montage-window-mt004'><td><pre>ShareCap=</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the share limit box. In the trading window, there is a box for OverFill protection. If that box has a value, the system will auto-cancel the pending order if specified number of shares is reached. Some customers may want to put a lot of orders in different market place, as soon as the number of shares filled reaches the ShareCap, the system will automatically cancel the remaining order.
+        <br>
+        for example:
+        <br>
+        <br>
+        <b>
+         ShareCap=1000
+        </b>
+        <br>
+        will let you set your share limit to 1000;</td></tr>
+        <tr id='cmd-trade-montage-window-mt005'><td><pre>AUTODEF=BUY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is an example of how to use this hotkey. Suppose an account currently holds 400 shares long of a stock. The default shares is set up to be 1000. Suppose the user is ready to buy the same stock again and set up this hotkey. When this hotkey is pressed, the number of shares displayed in the Shares box will be 600 (1000-400). If the 400 shares are held in a short position, then pressing this hotkey will display 400 shares in the Shares box.</td></tr>
+        <tr id='cmd-trade-montage-window-mt006'><td><pre>AUTODEF=SELL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is an example of how to use this hotkey. Suppose an account currently holds 400 shares short of a stock. The default shares is set up to be 1000. Suppose the user is ready to short the same stock again and set up this hotkey. When this hotkey is pressed, the number of shares displayed in the Shares box will be 600 (1000-400). If the 400 shares are held in a long position, then pressing this hotkey will display 400 shares in the Shares box.</td></tr>
+        <tr id='cmd-trade-montage-window-mt007'><td><pre>AUTOCXLCOVER</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle the Auto Cancel Cover order; When the AutoCancelCover is ON, the order will be marked as auto cancel.  This order will be canceled when the position is liquidated but only IF the order that liquidated the position was also marked as ON.  For example, customer is long 500 shares of ABC.  Customer then posts a sell order through INET and another sell order through ARCA, both marked as Auto Cancel.  As soon as the position goes flat, the Order Server will automatically cancel the remaining open sell orders marked ON, but only IF the order that flattened the position was also marked as ON.  If it was marked as OFF those orders will still remain active.</td></tr>
+        <tr id='cmd-trade-montage-window-mt008'><td><pre>AUTOCXLCOVER=Y</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the Auto Cancel Cover order ON; When the AutoCancelCover is ON, the order will be marked as auto cancel.  This order will be canceled when the position is liquidated but only IF the order that liquidated the position was also marked as ON.  For example, customer is long 500 shares of ABC.  Customer then posts a sell order through INET and another sell order through ARCA, both marked as Auto Cancel.  As soon as the position goes flat, the Order Server will automatically cancel the remaining open sell orders marked ON, but only IF the order that flattened the position was also marked as ON.  If it was marked as OFF those orders will still remain active.</td></tr>
+        <tr id='cmd-trade-montage-window-mt009'><td><pre>AUTOCXLCOVER=N</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the Auto Cancel Cover order OFF; When the AutoCancelCover is ON, the order will be marked as auto cancel.  This order will be canceled when the position is liquidated but only IF the order that liquidated the position was also marked as ON.  For example, customer is long 500 shares of ABC.  Customer then posts a sell order through INET and another sell order through ARCA, both marked as Auto Cancel.  As soon as the position goes flat, the Order Server will automatically cancel the remaining open sell orders marked ON, but only IF the order that flattened the position was also marked as ON.  If it was marked as OFF those orders will still remain active.</td></tr>
+        <tr id='cmd-trade-montage-window-mt010'><td><pre>TogOrdEntry</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle the order entry part of the montage window on/off.</td></tr>
+        <tr id='cmd-trade-montage-window-mf001'><td><pre>FOCUS Share</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to Share box.</td></tr>
+        <tr id='cmd-trade-montage-window-mf002'><td><pre>FOCUS SShare</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to Show Share box.</td></tr>
+        <tr id='cmd-trade-montage-window-mf003'><td><pre>FOCUS Price</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to Price box.</td></tr>
+        <tr id='cmd-trade-montage-window-mf004'><td><pre>FOCUS BUY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to BUY button.</td></tr>
+        <tr id='cmd-trade-montage-window-mf005'><td><pre>FOCUS SELL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to SELL button.</td></tr>
+        <tr id='cmd-trade-montage-window-mf006'><td><pre>FOCUS CXL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to CXL button.</td></tr>
+        <tr id='cmd-trade-montage-window-mf007'><td><pre>FOCUS RPL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to Replace button.</td></tr>
+        <tr id='cmd-trade-montage-window-mf008'><td><pre>FOCUS SYMBOL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to Level I window symbol input box, so you can change the symbol.</td></tr>
+        <tr id='cmd-trade-montage-window-mf009'><td><pre>FOCUS STOPTYPE</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to Stop Type. This is for the Stop order entry style</td></tr>
+        <tr id='cmd-trade-montage-window-mf010'><td><pre>FOCUS STOPPRICE</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the current input focus to Stop Price. This is for the Stop order entry style.</td></tr>
+        <tr id='cmd-trade-montage-window-mf011'><td><pre>TradeWndStyle=</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set the style of Montage window. Available styles are Stop, Basic, Default, Detail, Option, FULL</td></tr>
+        <tr id='cmd-trade-montage-window-mf0111'><td><pre>SwitchAdvancedLadder</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        For Level2 window, switch to the new ladder view.</td></tr>
+        <tr id='cmd-trade-montage-window-mf012'><td><pre>LinkTo</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press this hotkey while holding left mouse button down will start the process of dragging anchor. This hotkey has the same effect as placing mouse cursor on the anchor icon and start dragging.</td></tr>
+        <tr id='cmd-trade-montage-window-mf016'><td><pre>UnLink</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press this hotkey while holding left mouse button down will start the process of dragging anchor. Dropping the anchor to the window will unlink between that window and this window.</td></tr>
+        <tr id='cmd-trade-montage-window-mf013'><td><pre>StopLevel2</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Stop all montage windows from receiving lv2 quotes</td></tr>
+        <tr id='cmd-trade-montage-window-mf014'><td><pre>ResumeLevel2</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Resume updating all montage windows' lv2 quotes (after using StopLevel2 hotkey)</td></tr>
+        <tr id='cmd-trade-montage-window-mf015'><td><pre>LockAllMontage</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Lock and unlock all Montage windows' BUY, SELL, SHRT, CXL and RPL buttons.
+                LockAllMontage Lock - lock all Montage windows
+                LockAllMontage Unlock - unlock all Montage windows
+        <br>
+        LockAllMontage - toggle lock/unlock of all Montage windows</td></tr>
+        <tr id='cmd-trade-montage-window-refreshorderevent'><td><pre>RefreshOrderEvent</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is only for TD customer which sometimes the Order will stuck, this command may able to refresh the order status.</td></tr>
+        <tr id='cmd-trade-montage-window-fixtags'><td><pre>FIXTags</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Send customized FIX Tags to routes. Example: "FIXTags=6102=TWAP|6113=318.28". "FIXTags=Clear" clear previous customized FIX tags.</td></tr>
+        <tr id='cmd-trade-montage-window-leftlocatequery'><td><pre>LeftLocateQuery</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        LeftLocateQuery is to query how many locate shares left to short for current symbol and account on Montage.</td></tr>
+        <tr id='cmd-trade-montage-window-filllocate'><td><pre>FillLocate</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        FillLocate is populate shares on Montage to first short locate window.</td></tr>
+    </table>
+    <h3>-----------------------------------</h3>
+    <h3>BUY</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-buy-buy'><td><pre>BUY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This command will send the order as a BUY order. Whether the order is sent out or not depends on OrdPrepare; if order prepare is ON, then order is not sent.</td></tr>
+        <tr id='cmd-trade-buy-buy-load'><td><pre>BUY=Load</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Prepares the order as a buy order, order is sent out after Enter key is pressed.</td></tr>
+        <tr id='cmd-trade-buy-buyclose'><td><pre>BUYCLOSE</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press BUY CLOSE button on Options Chain window or Montage window.</td></tr>
+        <tr id='cmd-trade-buy-buyopen'><td><pre>BUYOPEN</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press BUY OPEN button on Options Chain window or Montage window.</td></tr>
+    </table>
+    <h3>SELL</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-sell-sell'><td><pre>SELL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Use this to SELL or SHORT.</td></tr>
+        <tr id='cmd-trade-sell-sell-load'><td><pre>SELL=Load</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Prepares the order as Sell, order is sent out after Enter key pressed.</td></tr>
+        <tr id='cmd-trade-sell-sellclose'><td><pre>SELLCLOSE</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press SELL CLOSE button on Options Chain window or Montage window.</td></tr>
+        <tr id='cmd-trade-sell-sellopen'><td><pre>SELLOPEN</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press SELL OPEN button on Options Chain window or Montage window.</td></tr>
+    </table>
+    <h3>SELLCOVER</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-sellcover-sellcover'><td><pre>SELLCOVER</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Send sell order to cover existing position. If order qty is more than amount of shares in position, then order can't be sent. This hotkey doesn't support prepared state.</td></tr>
+    </table>
+    <h3>Send</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-send-'><td><pre>Send=AddShare</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This script will send order to increase position, It will add more shares,  if you have long poistion, it will send buy order, if you have short position, it will send short order.</td></tr>
+        <tr id='cmd-trade-send-'><td><pre>Send=Reverse</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This script will send order to cover position,  if you have long position, it will send sell order, if you have short position, it will send buy order.</td></tr>
+    </table>
+    <h3>REPLACE</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-replace-replace'><td><pre>REPLACE</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This command will send the order as a Replace order;
+        <br>
+        Whether the order is sent out or not depends on OrdPrepare, if order prepare is ON, then order is not sent.</td></tr>
+    </table>
+    <h3>CANCEL</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-cancel-cancel-all'><td><pre>CXL ALL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel all open orders.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-all-buy'><td><pre>CXL ALL BUY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to cancel all the buy orders only.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-all-sell'><td><pre>CXL ALL SELL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is to cancel all the sell orders only.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-all-for-an-account'><td><pre>CXL ALL ACCOUNT OF accountname</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel all open orders for an account.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-current-symbol'><td><pre>CXL ALLSYMB</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel all the orders that have same symbol in Level II window(Montage).</td></tr>
+        <tr id='cmd-trade-cancel-cancel-current-symbol-buy'><td><pre>CXL ALLSYMB BUY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel all the BUY orders that have same symbol in Level II window(Montage).</td></tr>
+        <tr id='cmd-trade-cancel-cancel-current-symbol-sell'><td><pre>CXL ALLSYMB SELL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel all the SELL orders that have same symbol in Level II window(Montage).</td></tr>
+        <tr id='cmd-trade-cancel-cancel-most-recent'><td><pre>CXL LAST</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the most recent order in the order queue.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-oldest'><td><pre>CXL FIRST</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the oldest order from the order queue.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-recent-for-current-symbol'><td><pre>CXL LASTSYMB</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the most recent order for the current symbol in the Level II (Montage) window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-oldest-for-current-symbol'><td><pre>CXL FIRSTSYMB</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the oldest order for the symbol in the current Level II (Montage) window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-in-bid-orders-for-current-symbol'><td><pre>CXL INBID</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the in bid orders for the symbol in the current Level II (Montage) window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-in-offer-orders-for-current-symbol'><td><pre>CXL INOFFER</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the in offer orders for the symbol in the current Level II (Montage) window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-the-long-order-with-closest-bid-price-for-current-symbol'><td><pre>CXL CLOSEST LONG</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the long order with the closest price to current lv1 bid price for the symbol in the current Montage window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-the-short-order-with-closest-ask-price-for-current-symbol'><td><pre>CXL CLOSEST SHORT</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the short order with the closest price to current lv1 ask price for the symbol in the current Montage window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-the-long-order-with-furthest-bid-price-for-current-symbol'><td><pre>CXL FURTHEST LONG</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the long order with the furthest price to current lv1 bid price for the symbol in the current Montage window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-the-short-order-with-furthest-ask-price-for-current-symbol'><td><pre>CXL FURTHEST SHORT</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel the short order with the furthest price to current lv1 ask price for the symbol in the current Montage window.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-orders-whose-price-are-above-current-montage-position-s-avgcost'><td><pre>CXL ABOVEAVGCOST</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel orders whose price are above current montage position's avgcost, if no position or position shares is 0, do nothing.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-orders-whose-price-are-below-current-montage-position-s-avgcost'><td><pre>CXL BELOWAVGCOST</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel orders whose price are below current montage position's avgcost, if no position or position shares is 0, do nothing.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-orders-whose-price-are-above-and-equal-current-montage-position-s-avgcost'><td><pre>CXL ABOVEEQAVGCOST</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel orders whose price are above and equal current montage position's avgcost, if no position or position shares is 0, do nothing.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-orders-whose-price-are-below-and-equal-current-montage-position-s-avgcost'><td><pre>CXL BELOWEQAVGCOST</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel orders whose price are below and equal current montage position's avgcost, if no position or position shares is 0, do nothing.</td></tr>
+        <tr id='cmd-trade-cancel-cancel-stop-orders'><td><pre>CXL STOP</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel stop orders.</td></tr>
+    </table>
+    <h3>Panic</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-panic-panic'><td><pre>PANIC</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This button cancels all open orders and sends the necessary market orders to clear positions; it will liquidate all accounts.</td></tr>
+        <tr id='cmd-trade-panic-panicaccount'><td><pre>PANIC ACCOUNT=myaccount</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This cancel all open orders and send market order to clear positions, effectively liquidate the specified account.</td></tr>
+    </table>
+    <h3>------------------------------------</h3>
+    <h3>Account Summary</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-account-summary-sa001'><td><pre>ShowAccount 1234567</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will open an account summary window for account 1234567, Replace 1234567 with your Account name.</td></tr>
+        <tr id='cmd-trade-account-summary-sa002'><td><pre>ShowStatistics</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will open a statistics window.</td></tr>
+        <tr id='cmd-trade-account-summary-sa003'><td><pre>Login</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will open a login dialog.</td></tr>
+    </table>
+    <h3>Trade and Order Filters</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt001'><td><pre>ClearFilter; DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Removes the filter for the trades window or the orders window, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt002'><td><pre>SetFilter Symbol X;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only symbol X for trades window or orders window, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt003'><td><pre>SetFilter Status Open;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only open orders for orders windows, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt004'><td><pre>SetFilter Status Canceled;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only canceled orders for orders windows, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt005'><td><pre>SetFilter Route X;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only orders with route X for orders window, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt006'><td><pre>SetFilter Branch X;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only orders from branch X for orders window, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt007'><td><pre>SetFilter Account X;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only orders with account number X for orders window, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt008'><td><pre>SetFilter Trader X;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only orders by trader X for orders window, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt009'><td><pre>SetFilter Category Real;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only production orders, not training orders, for the orders window, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt010'><td><pre>SetFilter Category Training;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only training orders for orders window but not the production orders, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt011'><td><pre>SetFilter Side Buy;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only buy orders for orders window but not the sell orders, depending on which window is selected.</td></tr>
+        <tr id='cmd-trade-trade-and-order-filters-flt012'><td><pre>SetFilter Side Sell;DoFilter</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show only Sell orders for orders window but not the buy orders, depending on which window is selected.</td></tr>
+    </table>
+    <h3>BP</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-trade-bp-bp001'><td><pre>RequiredBP BUY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Calculate buy order hold BP for current montage.</td></tr>
+        <tr id='cmd-trade-bp-bp002'><td><pre>RequiredBP SHORT</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Calculate short order hold BP for current montage.</td></tr>
+    </table>
+    <h2 id='cat-basket-trader'>Basket Trader</h2>
+    <h3>BasketTrader</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-basket-trader-baskettrader-bsk001'><td><pre>Edit</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Corresponds to the Edit button in the basket trader window.</td></tr>
+        <tr id='cmd-basket-trader-baskettrader-bsk002'><td><pre>Insert</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Corresponds to the Insert button in the basket trader window.</td></tr>
+        <tr id='cmd-basket-trader-baskettrader-bsk003'><td><pre>Reverse</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Corresponds to the Reverse button in the basket trader window.</td></tr>
+        <tr id='cmd-basket-trader-baskettrader-bsk004'><td><pre>Clear</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Corresponds to the Clear button in the basket trader window.</td></tr>
+        <tr id='cmd-basket-trader-baskettrader-bsk005'><td><pre>Delete</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Corresponds to the Delete button in the basket trader window.</td></tr>
+        <tr id='cmd-basket-trader-baskettrader-bsk006'><td><pre>LongBasket</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Corresponds to the Long Basket button in the basket trader window.</td></tr>
+        <tr id='cmd-basket-trader-baskettrader-bsk007'><td><pre>ShortBasket</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Corresponds to the Short Basket button in the basket trader window.</td></tr>
+    </table>
+    <h2 id='cat-chart-window'>Chart Window</h2>
+    <h3>Chart specific</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-chart-window-chart-specific-ct001'><td><pre>DataConfig</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Pop up chart data configure window.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct002'><td><pre>StudyConfig</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Pop up the chart study configure window.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct003'><td><pre>AreaConfig</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Pop up the chart area configure window.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct004'><td><pre>ChartHistory</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show history of viewed charts.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct006'><td><pre>ZoomIn</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Zoom in the chart.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct007'><td><pre>ZoomOut</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Zoom out the chart.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct008'><td><pre>ZoomFit</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Fit the chart to the window. also means zooming out to show all the data.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct018'><td><pre>NumBar 25</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Zoom in/out the chart to set the number of bars on the chart. 25 is an example. You may change it to any number you would like.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct009'><td><pre>Print</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Print the chart.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct010'><td><pre>DataManage</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Manage chart data.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct011'><td><pre>RemoveALLLines</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Remove all trend lines from the current chart for the current symbol. To remove for all symbols on the current chart, use RemoveALLLines AllSymbols. To remove trend lines by name, use removeAllLines ByName xxx, "xxx" is the name of the trend line. This is the name of each line given by user, not the line type name.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct012'><td><pre>Symbol X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show the chart of symbol X.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-'><td><pre>ShowPreAftMkt</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show/Hide the Pre/After Market bars.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct013'><td><pre>MinuteChart X [Xd]</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show a chart of X minutes with range of X days. The parameter Xd is optional. For example, "MinuteChart 5 10d" shows a 5 minutes chart with 10 days range.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct014'><td><pre>DayChart Xd [Xd or Xy]</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show a chart of X days with range of X days or X years. The parameter Xd or Xy is optional. For example, "DayChart 1d 150d" shows a 1 day chart with 150 days range, "DayChart 1d 3y" shows a 1 day chart with 3 years range.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct015'><td><pre>DayChart Xw</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show a chart of X weeks.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct016'><td><pre>DayChart Xm</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show a chart of X months.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct017'><td><pre>DayChart Xy</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show a chart of X years.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct026'><td><pre>SwitchChartWnd</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Switch between opened chart windows.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct027'><td><pre>ShowHideToolbar</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show or hide chart toolbar.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct028'><td><pre>Text</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Add note to chart.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct029'><td><pre>IncreaseTopBottomMargin</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Increase top and bottom margin.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct030'><td><pre>DecreaseTopBottomMargin</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Decrease top and bottom margin.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct031'><td><pre>ResetTopBottomMargin</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Example, ResetTopBottomMargin 10 will reset top and bottom margin to 10%. If no value is specified or value is less than 0 or greater than 99, it will reset to 3%.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct032'><td><pre>StopChartUpdate</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Stop updating all chart windows.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct033'><td><pre>ResumeChartUpdate</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Continue updating all chart windows (after stopped updating using StopChartUpdate hotkey).</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct034'><td><pre>GetMoreHistoricalData</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Get more historical data, same as moving mouse cursor to the left edge of chart window and clicking the left arrow.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct035'><td><pre>DefaultGlobalTrendLines</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        DefaultGlobalTrendLines ON - Turn default global trend lines on, DefaultGlobalTrendLines OFF - Turn default global trend lines off.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct036'><td><pre>SetChartType</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Change chart type to Line, Bar or Candle. For example, "SetChartType Line" will change current chart to line style.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct037'><td><pre>LoadSetting</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Load .cst files. For example, LoadSetting ChartSetting.cst</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct038'><td><pre>ToggleDragMode</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle between drag mode and normal mode</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct039'><td><pre>SetVWAPAnchor</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Click on chart to set VWAP anchor period for all VWAP studies in a chart window. If a name is given to a VWAP study (can be set in ConfigEx of chart study dialog), for example vwap1, then hotkey script "SetVWAPAnchor vwap1" will set anchor period for vwap1 only.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct040'><td><pre>ToggleCrosshair</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Turn on/off crosshair</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct041'><td><pre>VWAPAnchorPeriod</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set VWAP Anchor Period for all VWAP studies in a chart window. For example, VWAPAnchorPeriod 100 will set anchor period to 100. If a name is given to a VWAP study (can be set in ConfigEx of chart study dialog), for example vwap1, then hotkey script "VWAPAnchorPeriod 100 vwap1" will set anchor period to 100 for vwap1 only.</td></tr>
+        <tr id='cmd-chart-window-chart-specific-ct042'><td><pre>HideStudies</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle show/hide chart studies. For example, this will toggle show/hide Price and Volume studies, HideStudies "Price,Volume"  To add more studies just separate them by ','. 
+                      Study names must be same as in Study Config dialog.
+                      You can also use *? in this study name to hide studies with simular names, like "Move*" will hide every strudy name begining with "Move".</td></tr>
+    </table>
+    <h3>TrendLine Hotkeys</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-'><td><pre>HideTrendlineAll</pre></td><td class='tip'>Hide all trendlines in this chart window,
+        <br>
+        HideTrendlineAll    ----will switch between show or hide if no parameter follow.
+        <br>
+        HideTrendlineAll Yes----will hide all trendlines.
+        <br>
+        HideTrendlineAll No ----will show all trendlines.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-tlh01'><td><pre>TrendLineToGlobal</pre></td><td class='tip'>Send the selected trendLines in current chart window to global, global trendlines will display in all other chart window with same symbol</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-tlh01a'><td><pre>TrendLineToGlobalTF</pre></td><td class='tip'>Simular with the hotkey TrendLineToGlobal, but only to the chart window of same time frame.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-tlh02'><td><pre>TrendLineToLocal</pre></td><td class='tip'>Send the global selected trendLine to local chart window and area</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-tlh03'><td><pre>SaveGlobalTrendlines</pre></td><td class='tip'>Save all global trend lines to file.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-tlh04'><td><pre>LoadGlobalTrendlines</pre></td><td class='tip'>Load all global trend lines from file.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-tlh05'><td><pre>RemoveAllTrendlines</pre></td><td class='tip'>Remove all the trend lines of the same symbol in current chart window and global trend lines. To remove for all symbols on the current chart, use RemoveAllTrendlines AllSymbols. To remove trend lines for all chart windows and all symbols, use RemoveAllTrendlines AllSymbolsAllCharts.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct018'><td><pre>TrendLine</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw trend line.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct019'><td><pre>RayLine</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw ray line.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct020'><td><pre>HorizontalLine</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw horizontal line.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct021'><td><pre>VerticalLine</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw vertical line.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct022'><td><pre>FibonacciLine</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw Fibonacci line.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct023'><td><pre>FibonacciProject</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw Fibonacci Project.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct024'><td><pre>FibonacciArch</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw Fibonacci Arch.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct025'><td><pre>Rectangle</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw Rectangle.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct026'><td><pre>FibonacciLineExt</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Draw Fib Line Ext.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct027'><td><pre>DuplicateLine</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Duplicate selected line and draw the duplicated line at the current mouse cursor location.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct028'><td><pre>ConfigTrendLine</pre></td><td class='tip'><br>
+        ConfigTrendLine ShapeType lineStyle:lineColor:lineWidth:labeltextcolor:labelbgcolor [more line setttings for fib lines]
+        <br>
+        ShapeType can be the following: FibLineArch, FibLine, FibLineProj, FibLineExt, TrendLine, VerticalLine, HorzLine, Text, Rectangle
+        <br>
+        lineStyle can be the following: SolidLine, DashLine, DotLine, DashDotLine, DashDotDotLine
+        <br>
+        lineColor can be both RGB and hex, for example, FF0000 or 255,0,0 for red
+        <br>
+        The following is an example, ConfigTrendLine HorzLine DotLIne:FF0000:4   Another example, ConfigTrendLine FibLine DotLIne:FF0000:4 DotLIne:FFFF00:2:10 DotLIne:FF00FF:1:20  For Fib lines the fourth parameter is Fib ratio.
+        <br>
+        Example for Rectangle, ConfigTrendLine Rectangle DotLIne:FF0000:4:FF00FF:125:1  The last 3 parameters are interior fill color, transparency (0 to 255) and fill interior or not (1 or 0)</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct029'><td><pre>HideTrendlines</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle show/Hide trend lines by name. Each trend line's name can be specified by user.
+        <br>
+        If user doesn't specify name of the line, default name will be used.
+        <br>
+        These are default names for each type of line.
+        <br>
+        "TrendLineFiboLine"
+        <br>
+        "TrendLineFiboArch"
+        <br>
+        "TrendLineFiboExt"
+        <br>
+        "TrendLineFiboProj"
+        <br>
+        "TrendLineHoriz"
+        <br>
+        "TrendLine"
+        <br>
+        "TrendLineRay"
+        <br>
+        "TrendLineVert"
+        <br>
+        "TrendLineText"
+        <br>
+        "TrendLineRect"
+        <br>
+        To hide multiple lines, put names together separated by ','
+        <br>
+        For example, HideTrendLines TrendLine,TrendLineRay,TrendLineFiboLine
+        <br>
+        You can also use * or ? to match names. For example, HideTrendLines *Fib*  will toggle every trendline show/hide status wich has Fib inside their name.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct030'><td><pre>OpenTrendlineConfigWindow</pre></td><td class='tip'><br>
+        Open config window for currently selected trend line.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct031'><td><pre>HorzLineSetPrice</pre></td><td class='tip'><br>
+        For example, HorzLineSetPrice High will set currently selected horizontal line to today's high price.
+        <br>
+        Currently supported options are High, Low, Last, Bid, Ask, Open, YesterdayClose.
+        <br>
+        If a price is provided, then will set to that price, for example, HorzLineSetPrice 50.
+        <br>
+        If nothing is followed by HorzLineSetPrice, then it will set to Last price.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct032'><td><pre>DrawHorzLineWithPrice</pre></td><td class='tip'><br>
+        This hotkey will draw a horizontal line at user specified price. For example, DrawHorzLineWithPrice High will draw a line at today's high price.
+        <br>
+        Currently supported options are High, Low, Last, Bid, Ask, Open, YesterdayClose.
+        <br>
+        If a price is provided, for example, DrawHorzLineWithPrice 50 will draw a line at 50.
+        <br>
+        If nothing is followed by DrawHorzLineWithPrice, then it will draw at Last price.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct033'><td><pre>DrawHorzLineWithPrice()</pre></td><td class='tip'><br>
+        This hotkey will draw a horizontal line at user specified price using a variable.
+        <br>
+        It's available in advanced hotkey mode.
+        <br>
+        For example, $price=10;DrawHorzLineWithPrice($price) will draw a line at 10.
+        <br>
+        Another example, $price=Last;DrawHorzLineWithPrice($price) willl draw a line at last price.
+        <br>
+        For $price=Last, other supported options are High, Low, Last, Bid, Ask, Open, YesterdayClose.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct034'><td><pre>OpenTrendlineMgtWindow</pre></td><td class='tip'><br>
+        Open trend line management window.</td></tr>
+        <tr id='cmd-chart-window-trendline-hotkeys-ct035'><td><pre>DeselectAllGlobalLines</pre></td><td class='tip'><br>
+        Deselect all global trend lines in all chart windows.</td></tr>
+    </table>
+    <h3>Chart Order</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-chart-window-chart-order-co01'><td><pre>NewOrder</pre></td><td class='tip'>Place a new order from chart. Currently supported order types are NewOrder Market, NewOrder Limit, NewOrder StopMarket, NewOrder StopLimit, NewOrder StopRange, NewOrder StopRangeMkt.
+        <br>
+        <br>
+        Here is an example, "Account=xxxxx;Route=SMAT;Share=10;TIF=GTC;
+                NewOrder StopLimit" will place a stop limit order. After pressing hotkey, users can choose stop price and limit price by clicking on chart and move line marker to set price. Please note that only Account, Route, TIF and Share can be set for chart orders. Right click mouse to cancel placing new order.</td></tr>
+        <tr id='cmd-chart-window-chart-order-co02'><td><pre>Account</pre></td><td class='tip'>Set account for new order.</td></tr>
+        <tr id='cmd-chart-window-chart-order-co03'><td><pre>Route</pre></td><td class='tip'>Set route for new order.</td></tr>
+        <tr id='cmd-chart-window-chart-order-co04'><td><pre>TIF</pre></td><td class='tip'>Set TIF for new order</td></tr>
+        <tr id='cmd-chart-window-chart-order-co05'><td><pre>Share</pre></td><td class='tip'>Set number shares for new order. For chart order, only numbers and pos and Input are allowed, for example, Share=100 or Share=pos. Share=Input will pop up a text box to enter number of shares manually</td></tr>
+        <tr id='cmd-chart-window-chart-order-co06'><td><pre>ShowOrders</pre></td><td class='tip'>ShowOrders - show orders on chart, ShowOrders NO - don't show orders on chart</td></tr>
+        <tr id='cmd-chart-window-chart-order-co07'><td><pre>ShowTrades</pre></td><td class='tip'>ShowTrades - show trades on chart, ShowTrades NO - don't show trades on chart</td></tr>
+        <tr id='cmd-chart-window-chart-order-co08'><td><pre>ToggleShowTrades</pre></td><td class='tip'>Toggle showing and not showing trades on chart</td></tr>
+        <tr id='cmd-chart-window-chart-order-co09'><td><pre>ToggleShowOrders</pre></td><td class='tip'>Toggle showing and not showing orders on chart</td></tr>
+    </table>
+    <h3>Chart Alert</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-chart-window-chart-alert-co01'><td><pre>AddAlert</pre></td><td class='tip'>Add alert from chart. Currently supported alert types are BidPrice, AskPrice and LastPrice.
+        <br>
+        <br>
+        Here is an example, "AlertName=NewAlert;AlertType=LastPrice;
+        <br>
+        AlertOperator="&gt;";AddAlert"
+                After pressing hotkey, users can pick alert price from chart. Right click mouse to cancel adding new alert.</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co02'><td><pre>AlertName</pre></td><td class='tip'>Name of new alert.</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co03'><td><pre>AlertType</pre></td><td class='tip'>Values can be BidPrice, AskPrice and LastPrice.</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co04'><td><pre>AlertOperator</pre></td><td class='tip'>Values can be >, >=, =, <, <=
+        <br>
+        For advanced hotkey, need to put quotation marks around value, for example, AlertOperator="&gt;"</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co05'><td><pre>PlaySound</pre></td><td class='tip'>PlaySound=yes or PlaySound=no</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co06'><td><pre>AutoDelete</pre></td><td class='tip'>AutoDelete=yes or AutoDelete=no</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co07'><td><pre>Beep</pre></td><td class='tip'>Beep=yes or Beep=no</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co08'><td><pre>Loop</pre></td><td class='tip'>Loop=yes or Loop=no</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co09'><td><pre>PopupWindow</pre></td><td class='tip'>PopupWindow=yes or PopupWindow=no</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co10'><td><pre>Speak</pre></td><td class='tip'>Speak=yes or Speak=no</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co11'><td><pre>AutoReset</pre></td><td class='tip'>AutoReset=yes or AutoReset=no</td></tr>
+        <tr id='cmd-chart-window-chart-alert-co12'><td><pre>SoundFile</pre></td><td class='tip'>Choose sound file for this alert. For example, SoundFile="C:/Alert.wav"</td></tr>
+    </table>
+    <h2 id='cat-window-configuration'>Window Configuration</h2>
+    <h3>SwitchDesktop</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-switchdesktop-switchdesktop001'><td><pre>SwitchDesktop XXLayout</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Close current desktop and open XXLayout.dsk, change XXLayout to the name of desktop file you want to open.</td></tr>
+        <tr id='cmd-window-configuration-switchdesktop-switchtab001'><td><pre>SwitchTab tabname</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Switch to the tab with specified tabname. If no tabname is given, it will go to each tab in sequence.</td></tr>
+        <tr id='cmd-window-configuration-switchdesktop-switchgroup001'><td><pre>SwitchGroup GroupName</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Switch each sub window in a group window.</td></tr>
+    </table>
+    <h3>New Window</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-new-window-nw001'><td><pre>NewWindow Montage</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Montage window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw002'><td><pre>NewWindow Alert</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new alert window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw003'><td><pre>NewWindow Chart</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Chart window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw004'><td><pre>NewWindow TimeSale</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new TimeSale window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw005'><td><pre>NewWindow Position</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Position window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw006'><td><pre>NewWindow Order</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Order window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw006'><td><pre>NewWindow Trade</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Trade window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw007'><td><pre>NewWindow Account</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Account window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw008'><td><pre>NewWindow Option</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Option window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw009'><td><pre>NewWindow TradeLog</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new TradeLog window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw010'><td><pre>NewWindow EventLog</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new EventLog window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw011'><td><pre>NewWindow MarketView</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new MarketView window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw012'><td><pre>NewWindow HighLow</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new HighLow window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw013'><td><pre>NewWindow TopList</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new TopList window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw014'><td><pre>NewWindow Mail</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Mail window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw015'><td><pre>NewWindow TMP</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new order template configuration window. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw016'><td><pre>NewWindow Basket</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new Basket Traderwindow. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw017'><td><pre>NewWindow ShortList</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open a new ShortList window to see the shortable list. Use "SetPopOut Y" to pop it out, use "WPos X Y" and "WSize W H" to set the position and size of the new window. Note: WPos and WSize can only be used with widnows that pop out. Won't work with child window in the main frame.</td></tr>
+        <tr id='cmd-window-configuration-new-window-nw017'><td><pre>NewWindow TradingSetting</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open Trading Settings dialog.</td></tr>
+        <tr id='cmd-window-configuration-new-window-'><td><pre>NewWindow ShortLocate</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open Short Locate window, you need to have short locate permission to run this script. if run this script in montage window,
+                it will automaticaly setup symbol field of current symbol in montage window.</td></tr>
+        <tr id='cmd-window-configuration-new-window-'><td><pre>NewWindow Fundamental</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Open Fundamental window.</td></tr>
+    </table>
+    <h3>Window Position/Size</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-window-position-size-pos'><td><pre>WPos X Y</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will set the position of the window on focus at (X, Y). Using virtual X, Y for multiple screen. For example on a "Samsung 2ms 22" with resolution 1680X1050,
+        <font color="BLUE">
+         WPos 1680 0
+        </font>
+        will put the window on the left corner of the second screen on the right side for a dual monitor screen.
+                This command has to be used with
+        <font color="BLUE">
+         SetPopOut Y
+        </font>
+        , because for child window, its behaviour is not defined at this moment.</td></tr>
+        <tr id='cmd-window-configuration-window-position-size-size'><td><pre>WSize W H</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will set the size of the window on focus at (Width, Hight). Using virtual X, Y for multiple screen. See Wpos. This command has to be used with
+        <font color="BLUE">
+         SetPopOut Y
+        </font>
+        , because for child window, its behaviour is not defined at this moment.</td></tr>
+    </table>
+    <h3>Poping out</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-poping-out-pop001'><td><pre>SetPopOut Y</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will set the current focused window as a pop out, i.e. will pop the window outside the main window.</td></tr>
+        <tr id='cmd-window-configuration-poping-out-pop002'><td><pre>SetPopOut N</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will set the current focused window as child window, i.e. popin.</td></tr>
+        <tr id='cmd-window-configuration-poping-out-pop003'><td><pre>SetPopOut</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will toggle/change the current window's popout/popin status.</td></tr>
+    </table>
+    <h3>Configure</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-configure-conf001'><td><pre>Config</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will open the configuration window to configure the current window on focus.</td></tr>
+    </table>
+    <h3>Move Window</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-move-window-move001'><td><pre>MoveWindowToCursor</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Moves the window in focus to the location of mouse cursor.</td></tr>
+        <tr id='cmd-window-configuration-move-window-move002'><td><pre>MovePopoutWindowToCursor</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Moves the popout window in focus (including main window) to the location of mouse cursor.</td></tr>
+    </table>
+    <h3>Duplicate Window</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-duplicate-window-duplicatewindow'><td><pre>DuplicateWindow</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Create a new window with the same settings as the window on focus. Currently this hotkey can be used only for Montage, Time/Sale, Options and Chart windows.</td></tr>
+    </table>
+    <h3>FocusWindow</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-focuswindow-focuswindow'><td><pre>FocusWindow</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Change focus to the specified window. For example, FocusWindow Chart1, will change focus to the window with name Chart1. Window's name can be set by right clicking title bar, then in Frame Window Configure dialog enter a name in Name text box.</td></tr>
+    </table>
+    <h3>ShowAllHiddenWindows</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-showallhiddenwindows-showallhiddenwindows'><td><pre>ShowAllHiddenWindows</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Move all hidden windows to the center of the screen. Hidden windows include child windows that are out of the main window display area and pop out windows that are out of the monitor display area.</td></tr>
+    </table>
+    <h3>ShowHideTitleBar</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-showhidetitlebar-showtitlebar'><td><pre>ShowTitleBar</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Show all windows' title bars.</td></tr>
+        <tr id='cmd-window-configuration-showhidetitlebar-hidetitlebar'><td><pre>HideTitleBar</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Hide all windows' title bars.</td></tr>
+        <tr id='cmd-window-configuration-showhidetitlebar-alwaysontop'><td><pre>AlwaysOnTop</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Toggle "always on top" status</td></tr>
+    </table>
+    <h3>Layout</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-layout-savelayout'><td><pre>SaveLayout</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Save current layout and settings</td></tr>
+    </table>
+    <h3>Window Link</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-window-configuration-window-link-mf012'><td><pre>LinkTo</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press this hotkey while holding left mouse button down will start the process of dragging anchor. This hotkey has the same effect as placing mouse cursor on the anchor icon and start dragging.</td></tr>
+        <tr id='cmd-window-configuration-window-link-mf016'><td><pre>UnLink</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Press this hotkey while holding left mouse button down will start the process of dragging anchor. Dropping the anchor to the window will unlink between that window and this window.</td></tr>
+        <tr id='cmd-window-configuration-window-link-'><td><pre>ShowLinkColor</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        ShowLinkColor Yes will display all linked windows' border link colors. ShowLinkColor No will turn off displaying link colors.</td></tr>
+    </table>
+    <h2 id='cat-miscellaneous'>Miscellaneous</h2>
+    <h3>Simple Speaker</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-miscellaneous-simple-speaker-speak001'><td><pre>Speak HelloWorld</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This is the simplest speak command possible. Just put something you want the Speaker to speak out and that's it. Note:
+        <font color="RED">
+         no quotation Mark.
+        </font></td></tr>
+        <tr id='cmd-miscellaneous-simple-speaker-speak033'><td><pre>StopRead</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Stop the speaker from reading.</td></tr>
+        <tr id='cmd-miscellaneous-simple-speaker-speak034'><td><pre>PauseRead</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Pause the speaker.</td></tr>
+        <tr id='cmd-miscellaneous-simple-speaker-speak035'><td><pre>ResumeRead</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Resume paused speaker.</td></tr>
+        <tr id='cmd-miscellaneous-simple-speaker-speak038'><td><pre>MuteOrUnmuteAllSound</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Mute/Unmute all sound.</td></tr>
+        <tr id='cmd-miscellaneous-simple-speaker-speak036'><td><pre>Read</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        For a Montage window on focus, this will read the current level 1 bid /ask price. For a News window on focus, this will read the current news.</td></tr>
+        <tr id='cmd-miscellaneous-simple-speaker-speak037'><td><pre>ReadTitle</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This command is specific to news window; it will read the news title.</td></tr>
+    </table>
+    <h3>Read Account Info</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak002'><td><pre>ReadAccount 1 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak003'><td><pre>ReadAccount 2 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account realized PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak004'><td><pre>ReadAccount 4 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account unrealized PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak005'><td><pre>ReadAccount 8 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak006'><td><pre>ReadAccount 16 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak007'><td><pre>ReadAccount 3 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized Value.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak008'><td><pre>ReadAccount 5 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + UnRealized Value.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak009'><td><pre>ReadAccount 9 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak010'><td><pre>ReadAccount 17 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak011'><td><pre>ReadAccount 6 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Realized + UnRealized PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak012'><td><pre>ReadAccount 10 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Realized PnL + Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak013'><td><pre>ReadAccount 18 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Realized + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak014'><td><pre>ReadAccount 12 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account UnRealized PnL + Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak015'><td><pre>ReadAccount 20 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account UnRealized + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak016'><td><pre>ReadAccount 24 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak017'><td><pre>ReadAccount 7 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized + Unrealized PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak018'><td><pre>ReadAccount 11 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized + Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak019'><td><pre>ReadAccount 19 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak020'><td><pre>ReadAccount 13 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + UnRealized + Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak021'><td><pre>ReadAccount 21 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + UnRealized + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak022'><td><pre>ReadAccount 25 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak023'><td><pre>ReadAccount 14 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Realized + UnRealized PnL + Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak024'><td><pre>ReadAccount 22 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Realized + UnRealized + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak025'><td><pre>ReadAccount 26 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Realized + Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak026'><td><pre>ReadAccount 28 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account UnRealized + Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak027'><td><pre>ReadAccount 15 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized + UnRealized + Buying Power.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak028'><td><pre>ReadAccount 23 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized + UnRealized + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak029'><td><pre>ReadAccount 27 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized + Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak030'><td><pre>ReadAccount 29 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + UnRealized + Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak031'><td><pre>ReadAccount 30 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Realized + UnRealized + Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-speak032'><td><pre>ReadAccount 31 X</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Account Name + Realized + UnRealized + Buying Power + Net PnL.</td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-'><td><pre></pre></td><td class='tip'></td></tr>
+        <tr id='cmd-miscellaneous-read-account-info-'><td><pre></pre></td><td class='tip'></td></tr>
+    </table>
+    <h3>Shell</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-miscellaneous-shell-shell001'><td><pre>Shell [shell command]</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Run shell command.
+        <br>
+        for example:
+        <br>
+        <br>
+        <b>
+         Shell calc
+        </b>
+        <br>
+        <br>
+        will open the Windows caculator program.
+        <br>
+        <br>
+        If a Montage window is in focus when using this hotkey, then if parameter %SYMB% is added, for example, Shell calc -%SYMB%, if current symbol on Montage is IBM, then this command script will become Shell calc -IBM</td></tr>
+    </table>
+    <h3>Web Surfing</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-miscellaneous-web-surfing-web001'><td><pre>http://</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        This will open the default web browser and set the page to the address you specified. for example, you can link to finance.yahoo.com like this:
+        <br>
+        <br>
+        <font color="GREEN">
+         <b>
+          <u>
+           http://finance.yahoo.com
+          </u>
+         </b>
+        </font>
+        <br>
+        <br>
+        Or you can link in the Level2 symbol to yahoo profile:
+        <br>
+        <br>
+        <font color="GREEN">
+         <b>
+          <u>
+           http://finance.yahoo.com/q/pr?s=%SYMB%
+          </u>
+         </b>
+        </font>
+        <br>
+        <br>
+        the %SYMB% will be replaced to the symbol in the montage window.</td></tr>
+    </table>
+    <h3>Screen Recorder</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-start-recording'><td><pre>ScreenRecorder SelectRegionAndRecord</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select a region to record. This hotkey works without screen recorder window open.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-use-last-region-to-record'><td><pre>ScreenRecorder SelectLastRegionAndRecord</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Use the rectangle region selected last time to record. This hotkey works without screen recorder window open.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-full-screen-recording'><td><pre>ScreenRecorder StartFullScreenRecording</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Start full screen recording. This hotkey works without screen recorder window open.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-full-screen-screenshot-to-clipboard'><td><pre>ScreenRecorder FullScreenshotToClipboard</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Take full screenshot and copy to clipboard. This hotkey works without screen recorder window open.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-full-screen-screenshot-to-file'><td><pre>ScreenRecorder FullScreenshotToFile</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Take full screenshot and save to file. This hotkey works without screen recorder window open.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-select-screenshot-to-file'><td><pre>ScreenRecorder SelectRegionScreenshot</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select region to take screenshot. This hotkey works without screen recorder window open.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-use-last-region-to-take-screenshot'><td><pre>ScreenRecorder SelectLastRegionScreenshotToFile</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Use the region selected last time to take screenshot and save to file. This hotkey works without screen recorder window open.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-stop-recording'><td><pre>ScreenRecorder StopRecording</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Stop recording.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-play'><td><pre>ScreenRecorder Play</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Play selected recording.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-stop-play'><td><pre>ScreenRecorder StopPlaying</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Stop playing selected recording.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-pause'><td><pre>ScreenRecorder Pause</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Pause playing selected recording.</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-forward'><td><pre>ScreenRecorder Forward</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Forward</td></tr>
+        <tr id='cmd-miscellaneous-screen-recorder-rewind'><td><pre>ScreenRecorder Rewind</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Rewind</td></tr>
+    </table>
+    <h2 id='cat-shortlocate'>ShortLocate</h2>
+    <h3>ShortLocate</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate001'><td><pre>Inquire</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Inquire</td></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate002'><td><pre>InquireAll</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        InquireAll.</td></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate003'><td><pre>AvailabilityQuery</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        query available locate shares.</td></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate004'><td><pre>LocateLowest</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Locate Lowest.</td></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate005'><td><pre>AutoLocateMaxPrice=0.001</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Max price for AutoLocate (optional). If no available price after inquiring all, AutoLocate will not request locate.
+        <br>
+        AutoLocateMaxPrice can run from montage or short locate window.</td></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate006'><td><pre>AutoLocate</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        AutoLocate can run from Short Locate window or Montage. AutoLocate is to inquire all, then locate with lowest price automatically.
+        <br>
+        <br>
+        If run from Montage, set short locate window with symbol/account/share of Montage.
+        <br>
+        If run from short locate window, use current account/shares of short locate window.</td></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate007'><td><pre>AutoLocate Quickest</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        AutoLocate Quickest is to auto locate with 1st returned quote without checking price.</td></tr>
+        <tr id='cmd-shortlocate-shortlocate-shortlocate008'><td><pre>InquiryShare=100</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set inquiry share.</td></tr>
+    </table>
+    <h2 id='cat-general-script'>General Script</h2>
+    <h3>Conditions</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-general-script-conditions-if'><td><pre>if(){}else{}</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        if (condition)  { command;….command;}  else { command;..command;}
+        <br>
+        <br>
+        For example:
+        <br>
+        <font color="BLUE">
+         if ($abc==1) {
+         <br>
+         MsgBox(" this is 1");
+         <br>
+         $abc=$abc+1;
+         <br>
+         }else if ($abc==2) {
+         <br>
+         MsgBox(" this is 2");
+         <br>
+         $abc=$abc+1;
+         <br>
+         }else {
+         <br>
+         MsgBox(" this is others");
+         <br>
+         $abc=1;
+         <br>
+         }
+         <br>
+        </font></td></tr>
+        <tr id='cmd-general-script-conditions-while'><td><pre>while(){};</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        while( condition) { commands; … commands;}
+        <br>
+        <br>
+        Note:To avoid dead loop, we only allow maxium 200 loops.</td></tr>
+        <tr id='cmd-general-script-conditions-return'><td><pre>return;</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Stop current script; if the current script was actived by Exec or ExecHotkey then it will return back to calling script.</td></tr>
+    </table>
+    <h3>Message/Input Functions</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-general-script-message-input-functions-msgbox'><td><pre>MsgBox(value,value)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        This function will popup a message and display to customer.
+        <br>
+        For example:MsgBox("this is ","a test message!");</td></tr>
+        <tr id='cmd-general-script-message-input-functions-msglog'><td><pre>MsgLog(value,value)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        This function will add a log messge in the event log window.
+        <br>
+        For example:MsgLog("this is ","a test message!");</td></tr>
+        <tr id='cmd-general-script-message-input-functions-input'><td><pre>Input(Title,Default,line)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Display an Input window to let customer enter a value.
+        <br>
+        Title will be the input window title.
+        <br>
+        Default will be default value.
+        <br>
+        Line will be for multiple line input, 1 means single line, 5 means show 5 lines
+        <br>
+        For example:
+        <br>
+        $ABC=Input("Please input shares!","100");
+        <br>
+        $text=Input("Please input a text","",10);
+        <br></td></tr>
+    </table>
+    <h3>Variable Functions</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-general-script-variable-functions-getvar'><td><pre>GetVar(varname)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        return the global variable by name, varname is a string of the name of variable.
+        <br>
+        For example:
+        <br>
+        <font color="BLUE">
+         $V1="$MyShare";   //Directly assign a string to variable $V1;
+         <br>
+         $ABC=GetVar($V1);  //Get the value of named global variable, the variable name is store in $V1;
+         <br>
+         $ABD=GetVar("$Share1"); //Get the value of the global variable $Share1 and assigned to $ABD
+         <br>
+        </font></td></tr>
+        <tr id='cmd-general-script-variable-functions-setvar'><td><pre>SetVar(varname)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Set the value to a global variable by name. simular with the GetVal();</td></tr>
+        <tr id='cmd-general-script-variable-functions-delvar'><td><pre>DelVar(varname1, varname2,...)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Delete one or more global variables by name.
+        <br>
+        DelVar(*) will delete all variables.</td></tr>
+        <tr id='cmd-general-script-variable-functions-savevartofile'><td><pre>SaveVarToFile(filename)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Save all global variablies to a file.</td></tr>
+        <tr id='cmd-general-script-variable-functions-loadvarfromfile'><td><pre>LoadVarFromFile(filename)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Load all global variablies from a file.
+        <br></td></tr>
+    </table>
+    <h3>Object Functions</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-general-script-object-functions-getquoteobj'><td><pre>GetQuoteObj(symbol)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the Quote object for further access.</td></tr>
+        <tr id='cmd-general-script-object-functions-getaccountobj'><td><pre>GetAccountObj(Account)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the account object for further access.</td></tr>
+        <tr id='cmd-general-script-object-functions-getwidnowobj'><td><pre>GetWindowObj(windowname)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Retrieves a window object by its window name.
+        <br>
+        The window name can be set in the window configuration by right-clicking the window title.
+        <br>
+        <br>
+        If windowName is omitted, the function will attempt to retrieve the window object that invoked this script.
+        <br>
+        <br>
+        The function returns 0 if the window object cannot be found.
+        <br>
+        <br>
+        Example:
+        <br>
+        GetWindowObj("myChart"); // Retrieves the window object named "myChart"</td></tr>
+        <tr id='cmd-general-script-object-functions-neworderobj'><td><pre>NewOrderObj()</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get a new order object for order sending.</td></tr>
+        <tr id='cmd-general-script-object-functions-getorderobj'><td><pre>GetOrderObj("Acc=12345,Symb=MSFT")</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the object related to existing order with filter.
+        <br>
+        Available Filters:
+        <br>
+        Acc,Symb,Oid,RefNum,Price,Share,First,Last
+        <br>
+        Example: $myord=GetOrderObj("oid=12345");
+        <br>
+        $myord1=GetOrderObj("Acc=TRTEST,Symb=MSFT,Share&gt;10,First");
+        <br>
+        <br>
+        Share is the left open share, &gt;0 means this is active open order;
+        <br>
+        First means first order by order create time.</td></tr>
+        <tr id='cmd-general-script-object-functions-newalertobj'><td><pre>NewAlertObj()</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Create an alert object, then you can set conditions.
+        <br>
+        after modify the properties, need to call save() will save this alert;</td></tr>
+        <tr id='cmd-general-script-object-functions-getalertobj'><td><pre>GetAlertObj(name)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get an alert object by name, then you can set conditions.
+        <br>
+        After modify the properties, need to call save() to save this alert;</td></tr>
+        <tr id='cmd-general-script-object-functions-newuserobj'><td><pre>NewUserObj()</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        create a user defined object,  this object is a container object, which user can set many variable inside.
+        <br>
+        For example:
+							$myobj=NewUserObj();
+        <br>
+        $myobj.myvalue1=12345;
+        <br>
+        $myobj.myvalue2="Test";
+        <br>
+        $myobj.myQuote=GetQuoteObj("MSFT");
+        <br>
+        msgbox($myobj.myvalue2);</td></tr>
+        <tr id='cmd-general-script-object-functions-newbasewndobj'><td><pre>NewBaseWndObj()</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        create a Windows window object,This object can be used to access windows window.
+        <br>
+        For example:
+							$myobj=NewBaseWndObj();
+        <br>
+        $myobj.PickWndow();
+        <br>
+        msgbox($myobj.text);
+        <br></td></tr>
+        <tr id='cmd-general-script-object-functions-isobj'><td><pre>IsObj($var)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Checks whether the specified variable is an object.
+        <br>
+        This function is useful for verifying whether an object is valid.
+        <br>
+        <br>
+        IsObj() and IsObject() perform the same operation and are interchangeable.
+        <br>
+        <br>
+        You can also use this function to check whether an object is a specific named object, for example:
+        <br>
+        IsObj($var, "WindowObject");
+        <br>
+        This checks whether the object $var is a Window Object.</td></tr>
+    </table>
+    <h3>Math/String Functions</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-general-script-math-string-functions-round-value-precision'><td><pre>Round(value, precision, diff);</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        This function provides a flexible rounding operation.
+        <br>
+        <br>
+        <b>
+         Precision (0-6)
+        </b>
+        rounds a number to the specified number of decimal places.
+        <br>
+        <b>
+         diff
+        </b>
+        controls rounding direction:
+        <br>
+        -
+        <b>
+         0
+        </b>
+        = Round Down
+        <br>
+        -
+        <b>
+         1
+        </b>
+        = Round Up
+        <br>
+        -
+        <i>
+         (if omitted)
+        </i>
+        = Round to Nearest (standard rounding)
+        <br>
+        <br>
+        For example:
+        <br>
+        <b>
+         Round(123.456, 2);
+        </b>
+        will return
+        <b>
+         123.46
+        </b>
+        <br>
+        <b>
+         Round(123.456, 2, 0);
+        </b>
+        will return
+        <b>
+         123.45
+        </b>
+        <br>
+        <b>
+         Round(123.456, 2, 1);
+        </b>
+        will return
+        <b>
+         123.46
+        </b>
+        <br>
+        <br>
+        <b>
+         Special Precision Values:
+        </b>
+        <br>
+        <b>
+         100
+        </b>
+        – Round Down to Even Lots.
+        <br>
+        Useful for rounding share quantities.
+        <br>
+        Example:
+        <b>
+         Round(345, 100);
+        </b>
+        returns
+        <b>
+         300
+        </b>
+        .
+        <br>
+        <br>
+        <b>
+         101
+        </b>
+        – Round to Nearest Even Lot.
+        <br>
+        Example:
+        <b>
+         Round(345, 101);
+        </b>
+        returns
+        <b>
+         400
+        </b>
+        .
+        <br>
+        <br>
+        <b>
+         102
+        </b>
+        – Round to Nearest Increment.
+        <br>
+        The
+        <b>
+         diff
+        </b>
+        parameter is used to specify the increment.
+        <br>
+        Example:
+        <b>
+         Round(123.20, 102, 0.25);
+        </b>
+        returns
+        <b>
+         123.25
+        </b>
+        .
+        <br>
+        <br>
+        <b>
+         103
+        </b>
+        – Currency Format (String Output).
+        <br>
+        Returns a string formatted with 2 decimal places.
+        <br>
+        Example:
+        <b>
+         Round(123.456, 103);
+        </b>
+        returns
+        <b>
+         "123.46"
+        </b>
+        .
+        <br></td></tr>
+        <tr id='cmd-general-script-math-string-functions-abs'><td><pre>Abs(number)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the absolute value of a number.
+        <br>
+        For example:
+        <br>
+        Abs(-12.1)  will return 12.1</td></tr>
+        <tr id='cmd-general-script-math-string-functions-avg'><td><pre>Avg(numbers)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the average of the numbers.
+        <br>
+        For example:
+        <br>
+        Abs(1,2,3,4,5)  will return 3;</td></tr>
+        <tr id='cmd-general-script-math-string-functions-max'><td><pre>Max(numbers)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the maxium of the numbers.
+        <br>
+        For example:
+        <br>
+        Max(1.1,2.2,6.5,4,5)  will return 6.5;</td></tr>
+        <tr id='cmd-general-script-math-string-functions-min'><td><pre>Min(numbers)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the minimum of the numbers.
+        <br>
+        For example:
+        <br>
+        Min(1,2,0.5,4,5)  will return 0.5;</td></tr>
+        <tr id='cmd-general-script-math-string-functions-sqrt'><td><pre>sqrt(number)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the square root of the numbers.
+        <br>
+        For example:
+        <br>
+        Sqrt(25)  will return 5;</td></tr>
+        <tr id='cmd-general-script-math-string-functions-substring'><td><pre>SubString(Str,start,end)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the substring of string, dtart and end is the position of the string
+        <br>
+        For example:
+        <br>
+        SubString("This is good",5,7); will return string "is".</td></tr>
+        <tr id='cmd-general-script-math-string-functions-strlen'><td><pre>StrLen(Str)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the length of a string
+        <br>
+        For example:
+        <br>
+        Strlen("string"); will return string "6".</td></tr>
+        <tr id='cmd-general-script-math-string-functions-strfind'><td><pre>StrFind(Str,SubStr,start)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Find the position of the first Sub String in the Str from Start
+        <br>
+        For example:
+        <br>
+        SubString("This is a test ","is"); will return 2.
+        <br>
+        SubString("This is a test ","is",4); will return 5.
+        <br></td></tr>
+        <tr id='cmd-general-script-math-string-functions-strtrim'><td><pre>StrTrim(Str)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Trim white spaces of both ends of a string
+        <br></td></tr>
+    </table>
+    <h3>Other Global Functions</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-general-script-other-global-functions-getsecond'><td><pre>GetSecond()</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Return the current second of time since midnight
+        <br></td></tr>
+        <tr id='cmd-general-script-other-global-functions-playsound'><td><pre>PlaySound(file,device,flag)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        play sound;
+        <br>
+        <br>
+        file will be .WAV or .MP3 format file.
+        <br>
+        <br>
+        device will be the device name of your computer, like Speakers or Headphone,
+        <br>
+        <br>
+        flag is how this sound will play,
+        <br>
+        "INTRPT", inturrpt the current playing, play this sound and then continue current playing;
+        <br>
+        "SHARE", play sound and share with current playing;
+        <br>
+        "STOP",  Stop current playing sound;
+        <br>
+        "LOOP",  loop playing the sound;
+        <br>
+        For example
+        <br>
+        <font color="GREEN">
+         PlaySound("myvoice.mp3","Headphone","SHARE STOP");
+								PlaySound("alert1.wav");
+        </font></td></tr>
+        <tr id='cmd-general-script-other-global-functions-speak'><td><pre>Speak(text,device,flag)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Convert the text to voice.and play on the device with the flag.
+        <br>
+        device and flag are simular as PlaySound function;</td></tr>
+        <tr id='cmd-general-script-other-global-functions-wait'><td><pre>Wait(millseconds)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        This function will pause the script and wait for "millseconds" and then continue the following script.
+        <br>
+        <br>
+        It's very useful for some Asynchronous operations like subscrib quotes from server.
+							wait for some millseconds to make sure quotes return from server.</td></tr>
+        <tr id='cmd-general-script-other-global-functions-gethotkeyscript'><td><pre>GetHotkeyScript(hotkeyname)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the hotkey string of a hotkey by name.
+        <br></td></tr>
+        <tr id='cmd-general-script-other-global-functions-'><td><pre>ShellExec(operation,file,parameters,directory,showcmd)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Performs an operation on a specified file. Like the windows ShellExecute API function,
+        <br>
+        for example:
+							ShellExec("Notepad","a.txt","c:\");
+        <br>
+        ShellExec("http://dastrader.com");</td></tr>
+        <tr id='cmd-general-script-other-global-functions-color'><td><pre>Color(r,g,b)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the color by r,g,b or by color name. color value will be used in chart or other configure.
+        <br>
+        r,g,b value range from 0 to 255
+        <br>
+        For example:
+        <br>
+        Color( 255,255,0); will return a yellow color R=255,g=255.
+        <br>
+        Color("Red"); will return a red color.</td></tr>
+        <tr id='cmd-general-script-other-global-functions-isoptsymbol'><td><pre>IsOptSymbol(symbol)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Check if a symbol is an options symbom, symbol beging with + will be consider as options symbol.</td></tr>
+        <tr id='cmd-general-script-other-global-functions-setsymbolnote'><td><pre>SetSymbolNote(symbol,notename,Note)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        This function can set the notes for a symbol:
+        <br>
+        for example:
+        <br>
+        msgbox(GetSymbolNote("MSFT","Notes","This is notes for MSFT"));
+        <br>
+        This code can edit the symbol's notes for current window:
+        <br>
+        $tmpstr=GetSymbolNote(Symbol,"mynotes");
+        <br>
+        $tmpstr=input("My Note for"+Symbol,$tmpstr,10);
+        <br>
+        if ($tmpstr!="") SetSymbolNote(Symbol,"mynotes",$tmpstr);
+        <br>
+        <br>
+        notename can be any string you want it be. A symbol can have multiple notes with different notename.</td></tr>
+        <tr id='cmd-general-script-other-global-functions-getsymbolnote'><td><pre>GetSymbolNote(symbol,notename)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        This function can get the notes for a symbol:
+        <br>
+        for example:
+        <br>
+        msgbox(GetSymbolNote("MSFT","Notes"));</td></tr>
+        <tr id='cmd-general-script-other-global-functions-copywindowimg'><td><pre>CopyWindowImg(windowname)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Get the screen shot of the DAS window and send to clipboard
+        <br></td></tr>
+        <tr id='cmd-general-script-other-global-functions-copytext'><td><pre>CopyText(text)</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        Send the text to the clipboard.
+        <br></td></tr>
+    </table>
+    <h2 id='cat-complexorder'>ComplexOrder</h2>
+    <h3>Route</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-route-croute001'><td><pre>Route=OPTL</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set complex order route.</td></tr>
+    </table>
+    <h3>ACCOUNT</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-account-caccount001'><td><pre>ACCOUNT=MYACC</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select account.</td></tr>
+    </table>
+    <h3>SYMBOL</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-symbol-csymbol001'><td><pre>SYMBOL=SPX</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Change underlying symbol.</td></tr>
+    </table>
+    <h3>TIF</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-tif-ctif001'><td><pre>TIF=DAY</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set complex order TIF.</td></tr>
+    </table>
+    <h3>NETPRICE</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-netprice-cnetprice001'><td><pre>NETPRICE=0.05</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set a debit netprice.</td></tr>
+        <tr id='cmd-complexorder-netprice-cnetprice002'><td><pre>NETPRICE=-0.05</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set a credit netprice.</td></tr>
+    </table>
+    <h3>All or Nothing</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-all-or-nothing-caon001'><td><pre>AON=Y</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set complex order AON to YES.</td></tr>
+    </table>
+    <h3>Load template</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-load-template-ctmpt001'><td><pre>TMPT</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Load template, same with clicking on TMP button.</td></tr>
+    </table>
+    <h3>Add Leg</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-add-leg-caddleg001'><td><pre>AddLeg</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Add a leg, same with clicking on Add Leg button.</td></tr>
+    </table>
+    <h3>Send Complex Order</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-send-complex-order-csend001'><td><pre>Send</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Send Complex Order, same with clicking on Send Order button.</td></tr>
+    </table>
+    <h3>Cancel Complex Order</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-cancel-complex-order-ccancel001'><td><pre>Cancel</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Cancel Complex Order, same with clicking on Cancel Order button.</td></tr>
+    </table>
+    <h3>Replace Complex Order</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-replace-complex-order-creplace001'><td><pre>Replace</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Replace Complex Order, same with clicking on Replace Order button.</td></tr>
+    </table>
+    <h3>Select Spread Type</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-select-spread-type-cspreadtype001'><td><pre>SpreadType=Call Debit Spread</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select Call Debit Spread.</td></tr>
+        <tr id='cmd-complexorder-select-spread-type-cspreadtype002'><td><pre>SpreadType=Long Straddle</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select Long Straddle.</td></tr>
+    </table>
+    <h3>Leg Expiration Date</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-leg-expiration-date-clegdate001'><td><pre>LegDate1=Feb 20 26</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select expiration date for leg 1.</td></tr>
+        <tr id='cmd-complexorder-leg-expiration-date-clegdate002'><td><pre>LegDate2=070325</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select expiration date for leg 2, 070325 (format mmddyy) means expiration date is Jul 03, 2025.</td></tr>
+    </table>
+    <h3>Leg Strike Price</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-leg-strike-price-clegstrike001'><td><pre>LegStrike1=4000</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select strike price for leg 1.</td></tr>
+        <tr id='cmd-complexorder-leg-strike-price-clegstrike002'><td><pre>LegStrike2=4500</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select strike price for leg 2.</td></tr>
+    </table>
+    <h3>Leg Type (call/put/stock)</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-leg-type-call-put-stock-clegtype001'><td><pre>LegType1=Call</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select call for leg 1.</td></tr>
+        <tr id='cmd-complexorder-leg-type-call-put-stock-clegtype002'><td><pre>LegType2=Put</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select put for leg 2.</td></tr>
+        <tr id='cmd-complexorder-leg-type-call-put-stock-clegtype003'><td><pre>LegType1=Stock</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select stock for leg 1.</td></tr>
+    </table>
+    <h3>Leg Side</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-leg-side-clegside001'><td><pre>LegSide1=Buy</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select buy for leg 1.</td></tr>
+        <tr id='cmd-complexorder-leg-side-clegside002'><td><pre>LegSide2=Sell</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select sell for leg 2.</td></tr>
+    </table>
+    <h3>Leg Open/Close</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-leg-open-close-clegoc001'><td><pre>LegOC1=Open</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select open for leg 1.</td></tr>
+        <tr id='cmd-complexorder-leg-open-close-clegoc002'><td><pre>LegOC2=Close</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Select close for leg 2.</td></tr>
+    </table>
+    <h3>Leg Share</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-leg-share-clegshare001'><td><pre>LegShare1=5</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set share number for leg 1.</td></tr>
+        <tr id='cmd-complexorder-leg-share-clegshare002'><td><pre>LegShare2=10</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Set share number for leg 2.</td></tr>
+    </table>
+    <h3>Delete Leg</h3>
+    <table>
+        <tr><th>Script</th><th>Tip</th></tr>
+        <tr id='cmd-complexorder-delete-leg-clegdelete001'><td><pre>LegDelete1</pre></td><td class='tip'><font color="GREEN">
+         <center>
+          Command Tip
+         </center>
+        </font>
+        <br>
+        <br>
+        Delete leg 1. Reminder: if leg 1 was deleted, previous leg 2 will become leg 1.</td></tr>
+    </table>
+</body>
+</html>
