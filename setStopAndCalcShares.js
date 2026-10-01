@@ -1,4 +1,12 @@
 /**
+ * Companion script for the "Setting Stops" video: https://youtu.be/zQs2LgtYvRU
+ *
+ * Click a price on the chart to set your stop, then automatically calculates
+ * the share size for a fixed dollar-risk trade based on that stop and the
+ * current entry price.
+ */
+
+/**
  * Sets the Stop for a ticker prior to entering a trade
  */
 function SetStop() {
