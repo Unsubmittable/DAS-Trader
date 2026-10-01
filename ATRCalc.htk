@@ -1,5 +1,7 @@
 /**
  * ATR Calculator
+ * Companion script for the "DAS Trader Average True Range (ATR) Calculator" video: https://youtu.be/MJlpKbOLzVM
+ *
  * Ticker: Quote object
  * Montage1: The name of the Montage Level II window you want to trade off of
  * MainHTF: The name of your chart daily chart you want to fetch the ATR from
